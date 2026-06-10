@@ -3,143 +3,684 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SIPANCA - Sistem Informasi Pancasila Kampus. Platform digital untuk mengelola informasi Pancasila di lingkungan kampus.">
-    <meta name="keywords" content="SIPANCA, Pancasila, Kampus, Sistem Informasi">
     <title>SIPANCA - Sistem Informasi Pancasila Kampus</title>
-    <link rel="stylesheet" href="styles.css">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fcfbfe;
+        }
+        .bg-gradient-purple {
+            background: linear-gradient(135deg, #6b21a8 0%, #4c1d95 100%);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <h1>SIPANCA</h1>
+<body class="text-slate-800 antialiased selection:bg-purple-200">
+
+    <!-- NAVIGATION BAR -->
+    <nav class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-purple-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-purple flex items-center justify-center text-white shadow-md shadow-purple-200">
+                        <i class="fa-solid fa-graduation-cap text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-extrabold tracking-tight text-purple-900 block leading-none">SIPANCA</span>
+                        <span class="text-[10px] font-medium tracking-wider text-purple-600 uppercase">Platform Empati Kampus</span>
+                    </div>
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="#home">Beranda</a></li>
-                    <li><a href="#about">Tentang</a></li>
-                    <li><a href="#features">Fitur</a></li>
-                    <li><a href="#contact">Kontak</a></li>
-                </ul>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#beranda" class="text-sm font-semibold text-purple-950 hover:text-purple-600 transition-colors">Beranda</a>
+                    <a href="#fitur" class="text-sm font-semibold text-slate-600 hover:text-purple-600 transition-colors">Fitur Utama</a>
+                    <a href="#statistik" class="text-sm font-semibold text-slate-600 hover:text-purple-600 transition-colors">Statistik Dampak</a>
+                    <a href="#tentang" class="text-sm font-semibold text-slate-600 hover:text-purple-600 transition-colors">Bantuan</a>
+                </div>
+                <div class="hidden md:flex items-center">
+                    <a href="#fitur" class="bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-300 shadow-md shadow-purple-100 hover:shadow-purple-200 hover:-translate-y-0.5">
+                        Mulai Sekarang
+                    </a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 text-purple-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-purple-50 px-4 pt-2 pb-4 space-y-2">
+            <a href="#beranda" class="block px-3 py-2 rounded-lg text-base font-medium text-purple-900 bg-purple-50">Beranda</a>
+            <a href="#fitur" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-600 hover:bg-purple-50 hover:text-purple-900">Fitur Utama</a>
+            <a href="#statistik" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-600 hover:bg-purple-50 hover:text-purple-900">Statistik Dampak</a>
+            <a href="#fitur" class="block text-center bg-purple-600 text-white font-bold py-2.5 rounded-lg mt-4">Mulai Sekarang</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Sistem Informasi Pancasila Kampus</h1>
-                <p class="hero-subtitle">Platform digital untuk mengelola dan menyebarkan informasi Pancasila di lingkungan kampus</p>
-                <div class="cta-buttons">
-                    <button class="btn btn-primary">Mulai Sekarang</button>
-                    <button class="btn btn-secondary">Pelajari Lebih Lanjut</button>
+    <!-- 1. HERO SECTION -->
+    <header id="beranda" class="relative overflow-hidden pt-12 pb-20 md:pt-20 md:pb-28 bg-radial from-purple-50/60 to-transparent">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 text-purple-700 text-xs font-semibold mb-6 border border-purple-100">
+                        <span class="flex h-2 w-2 rounded-full bg-purple-600 animate-pulse"></span>
+                        Transformasi Nilai Kampus Abad 21
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.15] mb-4">
+                        SIPANCA
+                    </h1>
+                    <h2 class="text-xl sm:text-2xl font-bold text-purple-900 mb-4">
+                        Sistem Informasi Pancasila Kampus
+                    </h2>
+                    <p class="text-lg font-medium text-purple-600/90 tracking-wide uppercase mb-6">
+                        Belajar. Empati. Bertindak.
+                    </p>
+                    <p class="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed">
+                        Platform ekosistem digital untuk menumbuhkan rasa empati mendalam, mengaktualisasikan nilai luhur Pancasila, serta garda terdepan dalam pencegahan dan penanganan kekerasan seksual (PPKS) di lingkungan perguruan tinggi.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#fitur" class="w-full sm:w-auto text-center bg-purple-600 hover:bg-purple-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-lg shadow-purple-200 hover:shadow-purple-300 hover:-translate-y-1">
+                            Mulai Sekarang <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                        <a href="#statistik" class="w-full sm:w-auto text-center bg-white hover:bg-purple-50 text-purple-700 font-bold px-8 py-4 rounded-xl transition-all duration-300 border border-purple-200">
+                            Lihat Dampak Kontribusi
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Interactive Visual Panel (Mockup App) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-indigo-400 rounded-3xl blur-2xl opacity-20 -rotate-3 scale-105"></div>
+                    <div class="relative bg-white border border-purple-100 rounded-2xl shadow-2xl p-5 overflow-hidden">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3 h-3 rounded-full bg-rose-400 block"></span>
+                                <span class="w-3 h-3 rounded-full bg-amber-400 block"></span>
+                                <span class="w-3 h-3 rounded-full bg-emerald-400 block"></span>
+                            </div>
+                            <span class="text-xs font-semibold text-slate-400 bg-slate-50 px-3 py-1 rounded-md">Live Platform Sandbox</span>
+                        </div>
+                        
+                        <!-- Mini Preview App Widget -->
+                        <div class="space-y-4">
+                            <div class="p-3.5 bg-purple-50 border border-purple-100 rounded-xl flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-9 h-9 rounded-lg bg-purple-600 text-white flex items-center justify-center">
+                                        <i class="fa-solid fa-shield-heart"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-800">Status Keamanan Kampus</p>
+                                        <p class="text-[10px] text-slate-500">Kondisi Aman Terkendali</p>
+                                    </div>
+                                </div>
+                                <span class="text-[11px] font-bold bg-emerald-100 text-emerald-800 px-2 py-1 rounded">100% Aktif</span>
+                            </div>
+
+                            <div class="p-3.5 bg-slate-50 border border-slate-100 rounded-xl">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-bold text-slate-800"><i class="fa-solid fa-robot text-purple-600 mr-1.5"></i> AI Empati Assistant</span>
+                                    <span class="text-[9px] bg-purple-100 text-purple-700 px-1.5 py-0.5 rounded font-bold">Online</span>
+                                </div>
+                                <p class="text-xs text-slate-600 italic bg-white p-2.5 rounded border border-slate-100">"Bagaimana cara merespons teman yang sedang mengalami kecemasan akibat tekanan sosial?"</p>
+                            </div>
+
+                            <div class="p-3 border border-dashed border-purple-200 rounded-xl bg-purple-50/40 text-center py-5">
+                                <p class="text-xs text-purple-950 font-semibold mb-2">Punya Pertanyaan atau Butuh Bantuan Darurat?</p>
+                                <button onclick="openModal('ppks')" class="bg-rose-500 hover:bg-rose-600 text-white text-[11px] font-bold px-4 py-2 rounded-lg transition-colors cursor-pointer">
+                                    <i class="fa-solid fa-bell mr-1"></i> Ajukan Laporan PPKS Rahasia
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="hero-placeholder">📚 Pancasila</div>
+        </div>
+    </header>
+
+    <!-- 2. FITUR UTAMA SECTION -->
+    <section id="fitur" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-extrabold uppercase tracking-widest text-purple-600 mb-2">Modul Komprehensif</h2>
+                <p class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                    Fitur Utama Sistem Terintegrasi
+                </p>
+                <div class="w-16 h-1 bg-purple-600 mx-auto mt-4 rounded-full"></div>
+                <p class="text-base text-slate-600 mt-4">
+                    Jelajahi ekosistem instrumen digital yang dirancang khusus untuk memenuhi kebutuhan edukasi Pancasila, pengembangan karakter empati, serta mitigasi preventif kekerasan seksual.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: AI Empati -->
+                <div class="group bg-white border border-purple-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-5 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-inner">
+                            <i class="fa-solid fa-brain"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-purple-900">AI Empati</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Konsultasi psikologis awal bertenaga AI untuk melatih respons empati mahasiswa terhadap dilema sosial, perundungan, dan deteksi krisis interpersonal.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-50">
+                        <button onclick="openModal('ai')" class="text-xs font-bold text-purple-600 group-hover:text-purple-800 flex items-center gap-1.5 cursor-pointer">
+                            Coba Simulasi AI <i class="fa-solid fa-chevron-right text-[10px] transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2: Pelaporan PPKS -->
+                <div class="group bg-white border border-purple-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl mb-5 group-hover:bg-rose-600 group-hover:text-white transition-all duration-300 shadow-inner">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-rose-900">Pelaporan PPKS</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Kanal pelaporan kekerasan seksual yang aman, anonim, rahasia, dan langsung terintegrasi dengan tim Satuan Tugas Kampus demi perlindungan korban yang maksimal.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-50">
+                        <button onclick="openModal('ppks')" class="text-xs font-bold text-rose-600 group-hover:text-rose-800 flex items-center gap-1.5 cursor-pointer">
+                            Buka Form Pelaporan <i class="fa-solid fa-chevron-right text-[10px] transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 3: Mata Kuliah Pancasila -->
+                <div class="group bg-white border border-purple-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-5 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-inner">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-purple-900">Mata Kuliah Pancasila</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Akses modul pembelajaran interaktif, micro-learning berorientasi studi kasus nyata, literasi kebangsaan, dan kuis pemahaman ideologi negara yang menyenangkan.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-50">
+                        <button onclick="openModal('makul')" class="text-xs font-bold text-purple-600 group-hover:text-purple-800 flex items-center gap-1.5 cursor-pointer">
+                            Akses Modul Belajar <i class="fa-solid fa-chevron-right text-[10px] transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 4: Simulasi Interaktif -->
+                <div class="group bg-white border border-purple-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-5 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-inner">
+                            <i class="fa-solid fa-gamepad"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-purple-900">Simulasi Interaktif</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Simulasi pengambilan keputusan berbasis skenario dunia nyata untuk melatih keberanian mahasiswa bertindak sebagai *active bystander* saat melihat penindasan.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-50">
+                        <button onclick="openModal('simulasi')" class="text-xs font-bold text-purple-600 group-hover:text-purple-800 flex items-center gap-1.5 cursor-pointer">
+                            Mulai Game Simulasi <i class="fa-solid fa-chevron-right text-[10px] transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 5: Dashboard Mahasiswa -->
+                <div class="group bg-white border border-purple-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-5 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-inner">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-purple-900">Dashboard Mahasiswa</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Halaman personal untuk melacak perkembangan skor empati individu, pencapaian sertifikat Pancasila, riwayat misi sosial, dan lencana kepedulian yang diraih.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-50">
+                        <button onclick="openModal('mhs')" class="text-xs font-bold text-purple-600 group-hover:text-purple-800 flex items-center gap-1.5 cursor-pointer">
+                            Lihat Demo Dashboard <i class="fa-solid fa-chevron-right text-[10px] transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 6: Dashboard Satgas -->
+                <div class="group bg-white border border-purple-100 rounded-2xl p-6 shadow-sm hover:shadow-xl hover:border-purple-200 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl mb-5 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-inner">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-900 mb-2 group-hover:text-purple-900">Dashboard Satgas</h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            Pusat kendali khusus bagi Satuan Tugas PPKS Kampus untuk memantau tren pelaporan, mengelola penanganan kasus secara rahasia, serta merancang peta mitigasi risiko kekerasan.
+                        </p>
+                    </div>
+                    <div class="pt-6 mt-6 border-t border-slate-50">
+                        <button onclick="openModal('satgas')" class="text-xs font-bold text-purple-600 group-hover:text-purple-800 flex items-center gap-1.5 cursor-pointer">
+                            Akses Panel Satgas <i class="fa-solid fa-chevron-right text-[10px] transition-transform group-hover:translate-x-1"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="container">
-            <h2 class="section-title">Tentang SIPANCA</h2>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>Misi</h3>
-                    <p>Membangun kesadaran dan pemahaman tentang nilai-nilai Pancasila di kalangan mahasiswa dan civitas akademik kampus.</p>
+    <!-- 3. STATISTIK DAMPAK SECTION -->
+    <section id="statistik" class="py-20 bg-purple-50/70 border-y border-purple-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-extrabold uppercase tracking-widest text-purple-600 mb-2">Metrik Keberhasilan</h2>
+                <p class="text-3xl font-extrabold text-slate-900 tracking-tight">Statistik Dampak Implementasi</p>
+                <div class="w-12 h-1 bg-purple-600 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Stat 1 -->
+                <div class="bg-white border border-purple-100/80 rounded-2xl p-6 text-center shadow-sm relative overflow-hidden group hover:border-purple-300 transition-all">
+                    <div class="absolute -right-4 -bottom-4 text-purple-50 text-7xl font-bold opacity-40 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-heart-circle-check"></i>
+                    </div>
+                    <p class="text-4xl font-black text-purple-700 tracking-tight mb-2">+85%</p>
+                    <h4 class="text-sm font-bold text-slate-900 mb-1">Peningkatan Empati</h4>
+                    <p class="text-xs text-slate-500">Skor rata-hari indeks empati sosial mahasiswa meningkat melalui modul AI.</p>
                 </div>
-                <div class="about-card">
-                    <h3>Visi</h3>
-                    <p>Menciptakan ekosistem digital yang mendukung pengembangan karakter berbasis nilai-nilai Pancasila di kampus.</p>
+
+                <!-- Stat 2 -->
+                <div class="bg-white border border-purple-100/80 rounded-2xl p-6 text-center shadow-sm relative overflow-hidden group hover:border-purple-300 transition-all">
+                    <div class="absolute -right-4 -bottom-4 text-purple-50 text-7xl font-bold opacity-40 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-handshake-slash"></i>
+                    </div>
+                    <p class="text-4xl font-black text-purple-700 tracking-tight mb-2">-40%</p>
+                    <h4 class="text-sm font-bold text-slate-900 mb-1">Penurunan Perundungan</h4>
+                    <p class="text-xs text-slate-500">Penurunan tingkat insiden perundungan siber maupun fisik di lingkungan kampus.</p>
                 </div>
-                <div class="about-card">
-                    <h3>Tujuan</h3>
-                    <p>Menyediakan platform terpadu untuk berbagi informasi, artikel, dan aktivitas terkait Pancasila secara efisien dan mudah diakses.</p>
+
+                <!-- Stat 3 -->
+                <div class="bg-white border border-purple-100/80 rounded-2xl p-6 text-center shadow-sm relative overflow-hidden group hover:border-purple-300 transition-all">
+                    <div class="absolute -right-4 -bottom-4 text-purple-50 text-7xl font-bold opacity-40 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bookmark"></i>
+                    </div>
+                    <p class="text-4xl font-black text-purple-700 tracking-tight mb-2">98%</p>
+                    <h4 class="text-sm font-bold text-slate-900 mb-1">Kesadaran Pancasila</h4>
+                    <p class="text-xs text-slate-500">Tingkat pemahaman nilai kebangsaan adaptif berdasarkan data kelulusan modul.</p>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="bg-white border border-purple-100/80 rounded-2xl p-6 text-center shadow-sm relative overflow-hidden group hover:border-purple-300 transition-all">
+                    <div class="absolute -right-4 -bottom-4 text-purple-50 text-7xl font-bold opacity-40 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <p class="text-4xl font-black text-purple-700 tracking-tight mb-2">100%</p>
+                    <h4 class="text-sm font-bold text-slate-900 mb-1">Pelaporan Terintegrasi</h4>
+                    <p class="text-xs text-slate-500">Seluruh aduan PPKS direspons cepat & ditindaklanjuti secara rahasia oleh Satgas.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2 class="section-title">Fitur Unggulan</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">📖</div>
-                    <h3>Perpustakaan Digital</h3>
-                    <p>Akses koleksi lengkap materi dan artikel tentang Pancasila dan nilai-nilainya.</p>
+    <!-- 4. FOOTER PROFESIONAL -->
+    <footer id="tentang" class="bg-purple-950 text-purple-100 pt-16 pb-12 border-t border-purple-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-purple-900">
+                
+                <!-- Brand Info -->
+                <div class="md:col-span-5">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-9 h-9 rounded-xl bg-white text-purple-950 flex items-center justify-center text-base font-bold shadow-md">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <span class="text-xl font-black tracking-tight text-white">SIPANCA</span>
+                    </div>
+                    <p class="text-xs text-purple-200/70 leading-relaxed max-w-sm mb-6">
+                        Inovasi digital perguruan tinggi yang mendedikasikan sistem cerdas untuk memperkuat moralitas Pancasila, menumbuhkan kepedulian empati murni, serta mewujudkan ruang akademik yang bersih dari segala bentuk kekerasan seksual.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="#" class="w-8 h-8 rounded-lg bg-purple-900 hover:bg-purple-800 transition-colors flex items-center justify-center text-sm text-white"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-purple-900 hover:bg-purple-800 transition-colors flex items-center justify-center text-sm text-white"><i class="fa-brands fa-linkedin-in"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-lg bg-purple-900 hover:bg-purple-800 transition-colors flex items-center justify-center text-sm text-white"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">👥</div>
-                    <h3>Komunitas</h3>
-                    <p>Bergabunglah dengan komunitas mahasiswa yang berkomitmen mempelajari dan mempraktikkan nilai Pancasila.</p>
+
+                <!-- Quick Links -->
+                <div class="md:col-span-3">
+                    <h5 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Navigasi Sistem</h5>
+                    <ul class="space-y-2.5 text-xs text-purple-200/80">
+                        <li><a href="#beranda" class="hover:text-white transition-colors">Halaman Utama</a></li>
+                        <li><a href="#fitur" class="hover:text-white transition-colors">Fitur Unggulan</a></li>
+                        <li><a href="#statistik" class="hover:text-white transition-colors">Statistik & Dampak</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Panduan Pengguna</a></li>
+                    </ul>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📅</div>
-                    <h3>Jadwal Acara</h3>
-                    <p>Ikuti berbagai kegiatan, seminar, dan workshop terkait Pancasila di kampus.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🏆</div>
-                    <h3>Program Penghargaan</h3>
-                    <p>Dapatkan pengakuan atas kontribusi dan partisipasi aktif dalam kegiatan Pancasila.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>Forum Diskusi</h3>
-                    <p>Berdiskusi dan berbagi perspektif tentang implementasi Pancasila dalam kehidupan modern.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Statistik & Analytics</h3>
-                    <p>Pantau kemajuan dan keterlibatan dalam berbagai aktivitas Pancasila di kampus.</p>
+
+                <!-- Emergency Contact -->
+                <div class="md:col-span-4">
+                    <h5 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Kontak Darurat PPKS</h5>
+                    <div class="p-4 rounded-xl bg-purple-900/50 border border-purple-800 space-y-3">
+                        <div class="flex items-center gap-3 text-xs">
+                            <i class="fa-solid fa-phone text-rose-400"></i>
+                            <div>
+                                <p class="text-purple-300 font-medium">Hotline Satgas Kampus</p>
+                                <p class="text-white font-bold">1500-XXX (Ext. 09)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3 text-xs">
+                            <i class="fa-solid fa-envelope text-purple-300"></i>
+                            <div>
+                                <p class="text-purple-300 font-medium">Email Pengaduan Rahasia</p>
+                                <p class="text-white font-semibold">satgas.ppks@kampus.ac.id</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2 class="section-title">Hubungi Kami</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Informasi Kontak</h3>
-                    <p><strong>Email:</strong> info@sipanca.kampus.id</p>
-                    <p><strong>Telepon:</strong> +62-XXX-XXXX-XXXX</p>
-                    <p><strong>Alamat:</strong> Kampus Utama, Jl. Pancasila No. 1, Kota, Indonesia</p>
-                </div>
-                <div class="contact-form">
-                    <h3>Kirim Pesan</h3>
-                    <form>
-                        <input type="text" placeholder="Nama Lengkap" required>
-                        <input type="email" placeholder="Email" required>
-                        <textarea placeholder="Pesan Anda" rows="5" required></textarea>
-                        <button type="submit" class="btn btn-primary">Kirim</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 SIPANCA - Sistem Informasi Pancasila Kampus. Semua hak cipta dilindungi.</p>
-            <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
+            <!-- Copyright Block -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-purple-300/60 gap-4">
+                <p>&copy; 2026 SIPANCA Platform. Hak Cipta Dilindungi Undang-Undang.</p>
+                <p>Didukung oleh Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi.</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+
+    <!-- INTERACTIVE APP MODAL SIMULATOR (DYNAMICS) -->
+    <div id="app-modal" class="fixed inset-0 z-50 overflow-y-auto hidden bg-purple-950/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-lg w-full shadow-2xl overflow-hidden border border-purple-100 transform scale-95 opacity-0 transition-all duration-300" id="modal-card">
+            
+            <!-- Modal Header -->
+            <div class="px-6 py-4 bg-gradient-purple text-white flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span id="modal-icon" class="text-lg"></span>
+                    <h3 id="modal-title" class="font-bold tracking-tight text-base">Modal Title</h3>
+                </div>
+                <button onclick="closeModal()" class="text-white/80 hover:text-white focus:outline-none cursor-pointer">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Dynamic Content Container -->
+            <div class="p-6" id="modal-body">
+                <!-- Injected via Javascript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Toggle Mobile Navigation
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Modal Elements Control
+        const appModal = document.getElementById('app-modal');
+        const modalCard = document.getElementById('modal-card');
+        const modalTitle = document.getElementById('modal-title');
+        const modalIcon = document.getElementById('modal-icon');
+        const modalBody = document.getElementById('modal-body');
+
+        function openModal(type) {
+            appModal.classList.remove('hidden');
+            appModal.classList.add('flex');
+            setTimeout(() => {
+                modalCard.classList.remove('scale-95', 'opacity-0');
+                modalCard.classList.add('scale-100', 'opacity-100');
+            }, 50);
+
+            // Configure dynamic content depending on selected system component
+            if (type === 'ai') {
+                modalIcon.className = "fa-solid fa-brain text-purple-300";
+                modalTitle.innerText = "Simulator Fitur: AI Empati";
+                modalBody.innerHTML = `
+                    <div class="space-y-4">
+                        <p class="text-xs text-slate-500">Gunakan asisten kecerdasan buatan untuk mengukur & merefleksikan respons empati moral Anda.</p>
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 h-40 overflow-y-auto space-y-3 text-xs" id="chat-box">
+                            <div class="bg-purple-100 text-purple-950 p-2 rounded-lg max-w-[85%]">
+                                <strong>AI Empati:</strong> Halo! Ceritakan situasi sulit atau dilema sosial yang sedang Anda/teman Anda hadapi di kampus?
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <input type="text" id="chat-input" placeholder="Ketik situasi sosial di sini..." class="flex-1 border border-purple-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-purple-600">
+                            <button onclick="simulateChat()" class="bg-purple-600 text-white px-4 py-2 rounded-xl text-xs font-bold hover:bg-purple-700">Kirim</button>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'ppks') {
+                modalIcon.className = "fa-solid fa-bullhorn text-rose-300";
+                modalTitle.innerText = "Simulator Fitur: Pelaporan PPKS Terenkripsi";
+                modalBody.innerHTML = `
+                    <form onsubmit="simulateSubmitReport(event)" class="space-y-3 text-xs">
+                        <div class="p-2.5 bg-rose-50 text-rose-900 rounded-lg border border-rose-100 font-medium">
+                            <i class="fa-solid fa-lock mr-1.5"></i> Formulir terenkripsi end-to-end. Identitas pelapor dijamin 100% rahasia sesuai undang-undang.
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Jenis Insiden / Kekerasan</label>
+                            <select class="w-full border border-slate-200 rounded-lg p-2 bg-white focus:outline-none focus:border-purple-600" required>
+                                <option value="">-- Pilih Kategori Kekerasan --</option>
+                                <option>Pelecehan Seksual Verbal / Isyarat</option>
+                                <option>Pelecehan Seksual Fisik</option>
+                                <option>Perundungan / Bullying Terkait Gender</option>
+                                <option>Kekerasan Berbasis Gender Online (KBGO)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-700 mb-1">Kronologi Singkat Kejadian</label>
+                            <textarea rows="3" placeholder="Tuliskan deskripsi peristiwa (waktu, lokasi, alur tanpa harus menyebut nama jika belum siap)..." class="w-full border border-slate-200 rounded-lg p-2 focus:outline-none focus:border-purple-600" required></textarea>
+                        </div>
+                        <div class="flex items-center gap-2 pt-2">
+                            <input type="checkbox" id="anonim" checked disabled class="accent-purple-600">
+                            <label for="anonim" class="text-slate-600 font-medium">Kirimkan sebagai Laporan Anonim Terlindungi</label>
+                        </div>
+                        <button type="submit" class="w-full bg-rose-500 hover:bg-rose-600 text-white font-bold py-2.5 rounded-xl transition-colors mt-2 text-center block">
+                            Kirim Aduan Aman ke Satgas
+                        </button>
+                    </form>
+                `;
+            } else if (type === 'makul') {
+                modalIcon.className = "fa-solid fa-book-bookmark text-purple-300";
+                modalTitle.innerText = "Simulator Fitur: Modul Interaktif Pancasila";
+                modalBody.innerHTML = `
+                    <div class="space-y-3 text-xs">
+                        <p class="text-slate-600">Pilih micro-learning modular adaptif berbasis nilai-nilai Pancasila:</p>
+                        <div class="border border-purple-100 rounded-xl p-3 bg-purple-50/50 hover:bg-purple-50 cursor-pointer transition-all flex items-center justify-between">
+                            <div>
+                                <p class="font-bold text-purple-950">Topik 1: Kemanusiaan yang Adil dan Beradab</p>
+                                <p class="text-[10px] text-slate-500">Implementasi penolakan segala bentuk diskriminasi & objektifikasi manusia.</p>
+                            </div>
+                            <span class="bg-purple-200 text-purple-800 px-2 py-0.5 rounded text-[10px] font-bold">Mulai</span>
+                        </div>
+                        <div class="border border-slate-100 rounded-xl p-3 bg-white opacity-60 flex items-center justify-between">
+                            <div>
+                                <p class="font-bold text-slate-800">Topik 2: Keadilan Sosial di Ruang Kampus</p>
+                                <p class="text-[10px] text-slate-500">Menciptakan kesetaraan hak aman memperoleh edukasi tanpa ancaman.</p>
+                            </div>
+                            <i class="fa-solid fa-lock text-slate-400"></i>
+                        </div>
+                        <p class="text-[11px] text-center text-slate-400 italic pt-2">Selesaikan topik pertama untuk membuka modul berikutnya.</p>
+                    </div>
+                `;
+            } else if (type === 'simulasi') {
+                modalIcon.className = "fa-solid fa-gamepad text-purple-300";
+                modalTitle.innerText = "Simulator Fitur: Dilema Nilai Interaktif";
+                modalBody.innerHTML = `
+                    <div class="space-y-4 text-xs" id="sim-box">
+                        <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+                            <span class="bg-purple-600 text-white px-2 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider mb-2 inline-block">Skenario Kasus</span>
+                            <p class="font-medium text-slate-800 leading-relaxed">"Anda melihat grup chat angkatan menyebarkan stiker bernuansa pelecehan seksual/merendahkan tubuh salah satu teman kelas perempuan Anda. Tindakan apa yang Anda lakukan?"</p>
+                        </div>
+                        <div class="space-y-2">
+                            <button onclick="chooseSim(1)" class="w-full text-left p-2.5 border border-slate-200 rounded-lg hover:bg-purple-50 hover:border-purple-300 transition-colors">A. Diam saja karena tidak mau dituduh ikut campur urusan orang lain.</button>
+                            <button onclick="chooseSim(2)" class="w-full text-left p-2.5 border border-slate-200 rounded-lg hover:bg-purple-50 hover:border-purple-300 transition-colors">B. Menegur langsung di grup secara sopan bahwa stiker tersebut melanggar nilai kesopanan, lalu mengedukasi kawan-kawan.</button>
+                            <button onclick="chooseSim(3)" class="w-full text-left p-2.5 border border-slate-200 rounded-lg hover:bg-purple-50 hover:border-purple-300 transition-colors">C. Melaporkan secara rahasia via SIPANCA agar akun penyebar diproses edukasi oleh Satgas Kampus.</button>
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'mhs') {
+                modalIcon.className = "fa-solid fa-user-gear text-purple-300";
+                modalTitle.innerText = "Simulator Fitur: Dashboard Mahasiswa";
+                modalBody.innerHTML = `
+                    <div class="space-y-3 text-xs">
+                        <div class="flex items-center gap-3 p-3 bg-purple-50 rounded-xl border border-purple-100">
+                            <div class="w-10 h-10 rounded-full bg-purple-600 text-white font-bold flex items-center justify-center text-sm shadow-sm">MA</div>
+                            <div>
+                                <h4 class="font-bold text-slate-800 text-sm">Muhammad Adli</h4>
+                                <p class="text-slate-500 text-[11px]">NIM: 23/514XXX/PN/18241</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-3">
+                            <div class="p-2.5 border border-slate-100 bg-slate-50 rounded-lg text-center">
+                                <p class="text-[10px] text-slate-500 font-medium">Pancasila Badge</p>
+                                <p class="font-bold text-purple-700 text-sm"><i class="fa-solid fa-award"></i> Kader Empati</p>
+                            </div>
+                            <div class="p-2.5 border border-slate-100 bg-slate-50 rounded-lg text-center">
+                                <p class="text-[10px] text-slate-500 font-medium">Skor Karakter Empati</p>
+                                <p class="font-bold text-purple-700 text-sm">88 / 100</p>
+                            </div>
+                        </div>
+                        <div class="p-2 bg-emerald-50 text-emerald-800 font-semibold border border-emerald-100 rounded-lg text-center text-[11px]">
+                            <i class="fa-solid fa-circle-check"></i> Sertifikat Bebas Kekerasan Seksual Kampus Aktif
+                        </div>
+                    </div>
+                `;
+            } else if (type === 'satgas') {
+                modalIcon.className = "fa-solid fa-user-shield text-purple-300";
+                modalTitle.innerText = "Simulator Fitur: Control Panel Satgas PPKS";
+                modalBody.innerHTML = `
+                    <div class="space-y-3 text-xs">
+                        <p class="text-slate-500">Ringkasan Antrean Kasus Kampus (Tampilan Khusus Tim Otoritas Terverifikasi):</p>
+                        <div class="space-y-2">
+                            <div class="p-2.5 border border-rose-100 bg-rose-50 rounded-lg flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-rose-950">Aduan Masuk #0921 (Anonim)</p>
+                                    <p class="text-[10px] text-slate-500">Kategori: KBGO Media Sosial Angkatan</p>
+                                </div>
+                                <span class="bg-rose-500 text-white font-bold text-[9px] px-2 py-0.5 rounded">BUTUH TINDAKAN</span>
+                            </div>
+                            <div class="p-2.5 border border-amber-100 bg-amber-50 rounded-lg flex justify-between items-center">
+                                <div>
+                                    <p class="font-bold text-amber-950">Aduan #0919 (Dalam Investigasi)</p>
+                                    <p class="text-[10px] text-slate-500">Pendampingan Psikolog & Hukum Korban</p>
+                                </div>
+                                <span class="bg-amber-500 text-white font-bold text-[9px] px-2 py-0.5 rounded">PROSES</span>
+                            </div>
+                            <div class="p-2.5 border border-emerald-100 bg-emerald-50 rounded-lg flex justify-between items-center opacity-70">
+                                <div>
+                                    <p class="font-bold text-emerald-950">Kasus #0884 (Selesai Mediasi/Sanksi)</p>
+                                    <p class="text-[10px] text-slate-500">Skorsing Pelaku & Pemulihan Korban</p>
+                                </div>
+                                <span class="bg-emerald-600 text-white font-bold text-[9px] px-2 py-0.5 rounded">SELESAI</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function closeModal() {
+            modalCard.classList.remove('scale-100', 'opacity-100');
+            modalCard.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                appModal.classList.remove('flex');
+                appModal.classList.add('hidden');
+            }, 250);
+        }
+
+        // Chat Logic Simulation
+        function simulateChat() {
+            const input = document.getElementById('chat-input');
+            const chatBox = document.getElementById('chat-box');
+            if(!input.value.trim()) return;
+
+            // Add user bubble
+            chatBox.innerHTML += `
+                <div class="bg-slate-200 text-slate-900 p-2 rounded-lg max-w-[85%] ml-auto text-right">
+                    ${input.value}
+                </div>
+            `;
+            const text = input.value;
+            input.value = "";
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Add fake dynamic AI delay response
+            setTimeout(() => {
+                chatBox.innerHTML += `
+                    <div class="bg-purple-100 text-purple-950 p-2 rounded-lg max-w-[85%]">
+                        <strong>AI Empati:</strong> Terima kasih atas keterbukaan Anda. Menurut Sila ke-2 Pancasila, menghargai harkat martabat manusia adalah pondasi utama. Tindakan terbaik yang direkomendasikan adalah melakukan pendekatan persuasif secara asertif, atau memanfaatkan modul <strong>Pelaporan PPKS Rahasia</strong> SIPANCA jika dirasa terdapat unsur ancaman keselamatan fisik/psikis. Kami siap mendukung langkah bijak Anda.
+                    </div>
+                `;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 1000);
+        }
+
+        // Submit Report Simulation
+        function simulateSubmitReport(e) {
+            e.preventDefault();
+            modalBody.innerHTML = `
+                <div class="text-center py-6 space-y-3">
+                    <div class="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto shadow-inner animate-bounce">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h4 class="text-base font-bold text-slate-900">Laporan Aman Berhasil Dikirim</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed px-4">
+                        Kode Tiket Rahasia Anda adalah <strong class="text-purple-700 bg-purple-50 px-1.5 py-0.5 rounded">#SPC-2026-9912</strong>. Simpan kode ini untuk memantau status perkembangan kasus yang diproses oleh Satgas PPKS Universitas secara aman.
+                    </p>
+                    <button onclick="closeModal()" class="mt-4 bg-purple-600 text-white font-bold px-5 py-2 rounded-lg text-xs hover:bg-purple-700">Tutup Simulator</button>
+                </div>
+            `;
+        }
+
+        // Game Simulation Logic
+        function chooseSim(choice) {
+            const simBox = document.getElementById('sim-box');
+            if(choice === 1) {
+                simBox.innerHTML = `
+                    <div class="p-4 bg-rose-50 border border-rose-200 rounded-xl space-y-2 text-center">
+                        <p class="font-bold text-rose-900 text-sm"><i class="fa-solid fa-triangle-exclamation"></i> Kurang Tepat (Skor Empati: +0)</p>
+                        <p class="text-slate-600">Sikap pasif acuh tak acuh (*bystander effect*) menyuburkan kultur kekerasan seksual di kampus serta melanggar implementasi Sila Kemanusiaan yang Adil dan Beradab.</p>
+                        <button onclick="openModal('simulasi')" class="mt-2 text-purple-600 font-bold hover:underline">Ulangi Pilih Jawaban</button>
+                    </div>
+                `;
+            } else if (choice === 2 || choice === 3) {
+                const message = choice === 2 ? 
+                    "Pilihan Luar Biasa! Dengan menegur secara bijak, Anda menerapkan nilai keberanian moral Pancasila." : 
+                    "Pilihan Sangat Cerdas & Aman! Melaporkan lewat sistem resmi menjamin tindakan korektif profesional dari Satgas.";
+                simBox.innerHTML = `
+                    <div class="p-4 bg-emerald-50 border border-emerald-200 rounded-xl space-y-2 text-center">
+                        <p class="font-bold text-emerald-900 text-sm"><i class="fa-solid fa-star text-amber-500"></i> Sangat Baik! (Skor Empati: +25)</p>
+                        <p class="text-slate-600">${message}</p>
+                        <button onclick="closeModal()" class="mt-4 bg-purple-600 text-white font-bold px-4 py-2 rounded-lg hover:bg-purple-700">Selesai Simulasi</button>
+                    </div>
+                `;
+            }
+        }
+
+        // Close modal clicking outside
+        window.onclick = function(event) {
+            if (event.target == appModal) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
